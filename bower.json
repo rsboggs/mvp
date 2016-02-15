@@ -1,0 +1,24 @@
+{
+  "name": "Places",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Robert Boggs"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/rsboggs/2016-01-mvp",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
+}

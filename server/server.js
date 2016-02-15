@@ -13,14 +13,20 @@ mongoose.connect('mongodb://localhost/Places');
 // Parse JSON
 app.use(bodyParser.json());
 // Parse forms
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
+// app.use(express.static(__dirname + '/public'));
+
 //Routes
+// app.get('/', function(req, res) {
+//   res.render('index.html');
+// });
+
 app.get('/places/', placeController.allPlaces);
 app.post('/places/', placeController.newPlace);
 
-app.listen(8000, '127.0.0.1');
+app.listen(8000);
 
 module.exports = app;
 
