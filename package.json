@@ -1,0 +1,22 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsboggs/2016-01-mvp.git"
+  },
+  "author": "Robert Boggs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsboggs/2016-01-mvp/issues"
+  },
+  "homepage": "https://github.com/rsboggs/2016-01-mvp#readme",
+  "dependencies": {
+    "mongoose": "^4.4.3"
+  }
+}
