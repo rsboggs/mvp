@@ -1,20 +1,20 @@
 <div id='container'>
   <div id="map" style="width: 500px; height: 400px;"></div>
   <br><br>
-  <form name="placeForm">
-    <input ng-model="currentPlace.name" placeholder="What's the place?"><br>
-    <input ng-model="currentPlace.description" placeholder="Describe it!"><br>
-    <input ng-model="currentPlace.url" placeholder="Url with more Info"><br>
-    <input ng-model="currentPlace.address" placeholder="Insert the address"><br>
-    <input type="submit" value="Submit" ng-click="addNewPlace()">
-  </form>
-  <div ng-repeat="place in data.places">
-    <div>Name: {{place.name}}</div>
-    <div>Description: {{place.description}}</div>
-    <a href={{place.url}}>More Info</a>
-    <div>{{place.address}}</div>
-    <span ng-click="increment()">Votes: {{place.votes}}</span><br>
-    Long: {{place.long}}<br>
-    Lat: {{place.lat}}<br>
+  <div class="places">
+    <form name="placeForm">
+      <input ng-model="currentPlace.name" placeholder="What's the place?" size="30">
+      <input ng-model="currentPlace.address" placeholder="What's the address?" size="30"><br>
+      <input ng-model="currentPlace.description" placeholder="Describe it!" size="63" name="description"><br>
+      <input ng-model="currentPlace.url" placeholder="Share a URL review?" size="30">
+      <input type="submit" value="Add" ng-click="addNewPlace()">
+    </form>
+      <div ng-repeat="place in data.places" class="idea">
+        <span class="placeName">{{place.name}}</span><span class="address">{{place.address}}</span><br>
+        <span class="url"><a href={{place.url}}>More Info</a></span>
+        <span class="description">{{place.description}}</span><br>
+        <span ng-click="increment()" class="voting">Vote for {{place.name}}</span>
+        <span ng-click="increment()" class="votes">Votes: {{place.votes}}</span><br>
+      </div>
   </div>
 </div>

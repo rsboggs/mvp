@@ -2,6 +2,7 @@ angular.module('app.places', [])
 
   .controller('PlacesController', function($scope, Places) {
     $scope.data = {};
+
     $scope.currentPlace = {};
 
     var updateMap = function() {
@@ -27,8 +28,6 @@ angular.module('app.places', [])
           };
         })(marker, i));
       }
-
-      
       
     };
 
@@ -37,6 +36,7 @@ angular.module('app.places', [])
         .then(function(places) {
           $scope.data.places = places.data;
           updateMap();
+          // $scope.$apply();
         })
         .catch(function(error) {
           console.error(error);
@@ -51,12 +51,16 @@ angular.module('app.places', [])
       $scope.currentPlace.long = -122.419595;
       $scope.currentPlace.lat = 37.79797;
       Places.addPlace($scope.currentPlace);
+      //currently erases before done submitting
+      // $scope.currentPlace.name = '';
+      // $scope.currentPlace.address = '';
+      // $scope.currentPlace.description = '';
+      // $scope.currentPlace.url = '';
     };
 
     $scope.increment = function() {
       //need to search for entry and increment visits
     };
-
 
     initializePlaces();
   });
