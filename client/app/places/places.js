@@ -6,7 +6,7 @@ angular.module('app.places', [])
     var initializePlaces = function() {
       Places.getPlaces()
         .then(function(places) {
-          $scope.data.places = places;
+          $scope.data.places = places.data;
         })
         .catch(function(error) {
           console.error(error);
