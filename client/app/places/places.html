@@ -1,19 +1,21 @@
 <div id='container'>
-  Other Text
   <div id="map" style="width: 500px; height: 400px;"></div>
-  Other Text
+  <form name="placeForm">
+    <input ng-model="currentPlace.name" placeholder="What's the place?"><br>
+    <input ng-model="currentPlace.description" placeholder="Describe it!"><br>
+    <input ng-model="currentPlace.url" placeholder="Url with more Info"><br>
+    <input ng-model="currentPlace.location" placeholder="Insert the address"><br>
+    <input type="submit" value="Submit" ng-click="addNewPlace()">
+  </form>
   <div ng-repeat="place in data.places">
-    <div>{{place.name}}</div>
+    <div>Name: {{place.name}}</div>
+    <div>Description: {{place.description}}</div>
+    <a href={{place.url}}>More Info</a>
+    <div>{{place.location}}</div>
+    <div>Votes: {{place.votes}}</div>
   </div>
 </div>
 
-<script>
-  var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      // center: new google.maps.LatLng(-33.92, 151.25),
-      center: new google.maps.LatLng(36.8857, -76.2599),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
 </script>
 
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>

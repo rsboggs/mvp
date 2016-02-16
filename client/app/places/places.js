@@ -2,6 +2,7 @@ angular.module('app.places', [])
 
   .controller('PlacesController', function($scope, Places) {
     $scope.data = {};
+    $scope.currentPlace = {};
 
     var initializePlaces = function() {
       Places.getPlaces()
@@ -11,6 +12,14 @@ angular.module('app.places', [])
         .catch(function(error) {
           console.error(error);
         });
+    };
+
+    $scope.addNewPlace = function() {
+      Places.addPlace($scope.currentPlace);
+    };
+
+    $scope.increment = function() {
+      //need to search for entry and increment visits
     };
 
     initializePlaces();

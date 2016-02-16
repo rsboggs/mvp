@@ -36,7 +36,8 @@ module.exports = {
             name: name,
             address: address,
             description: description,
-            url: url
+            url: url,
+            votes: 0
           };
           console.log('newPlace', newPlace);
           return createPlace(newPlace);
