@@ -11,7 +11,7 @@
     </form>
       <div ng-repeat="place in data.places" class="idea">
         <span class="placeName">{{place.name}}</span><span class="address">{{place.address}}</span><br>
-        <span class="url"><a href={{place.url}}>More Info</a></span>
+        <span class="url"><a href={{place.url}} target="_blank">More Info</a></span>
         <span class="description">{{place.description}}</span><br>
         <span ng-click="increment()" class="voting">Vote for {{place.name}}</span>
         <span ng-click="increment()" class="votes">Votes: {{place.votes}}</span><br>
