@@ -6,7 +6,7 @@
       <input ng-model="currentPlace.name" placeholder="What's the place?" size="30">
       <input ng-model="currentPlace.address" placeholder="What's the address?" size="30"><br>
       <input ng-model="currentPlace.description" placeholder="Describe it!" size="63" name="description"><br>
-      <input ng-model="currentPlace.url" placeholder="Share a URL review?" size="30">
+      <input ng-model="currentPlace.url" placeholder="Share a URL review" size="30">
       <input type="submit" value="Add" ng-click="addNewPlace()">
     </form>
       <div ng-repeat="place in data.places | orderBy:'-votes'" class="idea">
