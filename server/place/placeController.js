@@ -18,6 +18,23 @@ module.exports = {
       });
   },
 
+  updateVotes: function(req, res, next) {
+    var url = req.body.url;
+    console.log(url);
+    findPlace({url: url})
+      .then(function(match) {
+        if (!match) {
+          res.send({});
+        } else {
+          match.votes++;
+          match.save()
+            .then(function(err) {
+              res.send(match);
+            });
+        }
+      });
+  },
+
   deletePlaces: function(req, res, next) {
     findAllPlaces({})
       .then(function(places) {

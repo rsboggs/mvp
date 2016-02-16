@@ -27,6 +27,8 @@ app.get('/places/', placeController.allPlaces);
 app.post('/places/', placeController.newPlace);
 app.delete('/places/', placeController.deletePlaces);
 
+app.post('/votes/', placeController.updateVotes);
+
 app.listen(8000);
 
 module.exports = app;

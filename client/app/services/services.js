@@ -16,9 +16,16 @@ angular.module('app.services', [])
       });
     };
 
+    var updatePlace = function(place) {
+      return $http({
+        method: 'POST',
+        url: '/votes',
+        data: place
+      });
+    };
+
     var calcLongLat = function(address) {
       var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(address);
-      console.log('url', url);
       return $http({
         method: 'GET',
         url: url
@@ -28,7 +35,8 @@ angular.module('app.services', [])
     return {
       getPlaces: getPlaces,
       addPlace: addPlace,
-      calcLongLat: calcLongLat 
+      calcLongLat: calcLongLat,
+      updatePlace: updatePlace
     };
 
   });

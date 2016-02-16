@@ -54,7 +54,6 @@ angular.module('app.places', [])
 
           $scope.currentPlace.long = googleMaps.results[0].geometry.location.lng;
           $scope.currentPlace.lat = googleMaps.results[0].geometry.location.lat;
-
           Places.addPlace($scope.currentPlace)
           .then(function() {
             initializePlaces();
@@ -69,8 +68,11 @@ angular.module('app.places', [])
         });
     };
 
-    $scope.increment = function() {
-      //need to search for entry and increment visits
+    $scope.increment = function(place) {
+      Places.updatePlace(place)
+        .then(function() {
+          initializePlaces();
+        });
     };
 
     initializePlaces();
