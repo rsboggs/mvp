@@ -15,12 +15,19 @@ angular.module('app.places', [])
     };
 
     $scope.addNewPlace = function() {
+      // var googleMaps = Places.calcLongLat($scope.currentPlace.address);
+      // $scope.currentPlace.long = googleMaps.results[0].geometry.location.lng;
+      // $scope.currentPlace.lat = googleMaps.results[0].geometry.location.lat;
+      $scope.currentPlace.long = -122.419595;
+      $scope.currentPlace.lat = 37.79797;
       Places.addPlace($scope.currentPlace);
     };
 
     $scope.increment = function() {
       //need to search for entry and increment visits
     };
+
+
 
     initializePlaces();
   });

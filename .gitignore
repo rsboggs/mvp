@@ -29,6 +29,7 @@ node_modules/
 bower_components/
 client/lib
 yelpApi/
+googleKey.js
 
 # Floobits
 .floo

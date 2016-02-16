@@ -25,6 +25,7 @@ app.get('/', function(req, res) {
 
 app.get('/places/', placeController.allPlaces);
 app.post('/places/', placeController.newPlace);
+app.delete('/places/', placeController.deletePlaces);
 
 app.listen(8000);
 

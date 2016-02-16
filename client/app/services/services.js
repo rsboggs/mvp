@@ -16,9 +16,18 @@ angular.module('app.services', [])
       });
     };
 
+    var calcLongLat = function(address) {
+      var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(address);
+      return $http({
+        method: 'POST',
+        url: url
+      });
+    };
+
     return {
       getPlaces: getPlaces,
-      addPlace: addPlace
+      addPlace: addPlace,
+      calcLongLat: calcLongLat 
     };
 
   });

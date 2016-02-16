@@ -4,18 +4,16 @@
     <input ng-model="currentPlace.name" placeholder="What's the place?"><br>
     <input ng-model="currentPlace.description" placeholder="Describe it!"><br>
     <input ng-model="currentPlace.url" placeholder="Url with more Info"><br>
-    <input ng-model="currentPlace.location" placeholder="Insert the address"><br>
+    <input ng-model="currentPlace.address" placeholder="Insert the address"><br>
     <input type="submit" value="Submit" ng-click="addNewPlace()">
   </form>
   <div ng-repeat="place in data.places">
     <div>Name: {{place.name}}</div>
     <div>Description: {{place.description}}</div>
     <a href={{place.url}}>More Info</a>
-    <div>{{place.location}}</div>
-    <div>Votes: {{place.votes}}</div>
+    <div>{{place.address}}</div>
+    <span ng-click="increment()">Votes: {{place.votes}}</span><br>
+    Long: {{place.long}}<br>
+    Lat: {{place.lat}}<br>
   </div>
 </div>
-
-</script>
-
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
