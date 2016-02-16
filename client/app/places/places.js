@@ -7,8 +7,8 @@ angular.module('app.places', [])
 
     var updateMap = function() {
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: new google.maps.LatLng(37.79797, -122.419595),
+        zoom: 14,
+        center: new google.maps.LatLng(37.783697, -122.408966),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
@@ -28,6 +28,10 @@ angular.module('app.places', [])
           };
         })(marker, i));
       }
+
+      var numPlaces = [$scope.data.places.length - 1];
+      map.setCenter(new google.maps.LatLng($scope.data.places[numPlaces].lat, 
+        $scope.data.places[numPlaces].long));
       
     };
 
