@@ -1,5 +1,29 @@
 <div id='container'>
   <div id="map" style="width: 500px; height: 400px;"></div>
+
+  <script>
+
+  var locations = [['Bondi Beach', -33.890542, 151.274856, 4]];
+
+  console.log(location);
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(37.79797, -122.419595),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+  for (var i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map
+    })(i);
+  }
+
+  </script>
+
+
+
   <form name="placeForm">
     <input ng-model="currentPlace.name" placeholder="What's the place?"><br>
     <input ng-model="currentPlace.description" placeholder="Describe it!"><br>
