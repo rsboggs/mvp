@@ -1,6 +1,6 @@
 angular.module('app.services', [])
   
-  .factory('Places', function($http) {
+  .factory('Places', function($http, $q) {
     var getPlaces = function() {
       return $http({
         method: 'GET',
@@ -18,8 +18,9 @@ angular.module('app.services', [])
 
     var calcLongLat = function(address) {
       var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(address);
+      console.log('url', url);
       return $http({
-        method: 'POST',
+        method: 'GET',
         url: url
       });
     };

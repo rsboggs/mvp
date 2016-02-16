@@ -36,7 +36,6 @@ angular.module('app.places', [])
         .then(function(places) {
           $scope.data.places = places.data;
           updateMap();
-          // $scope.$apply();
         })
         .catch(function(error) {
           console.error(error);
@@ -45,17 +44,25 @@ angular.module('app.places', [])
 
 
     $scope.addNewPlace = function() {
-      // var googleMaps = Places.calcLongLat($scope.currentPlace.address);
-      // $scope.currentPlace.long = googleMaps.results[0].geometry.location.lng;
-      // $scope.currentPlace.lat = googleMaps.results[0].geometry.location.lat;
-      $scope.currentPlace.long = -122.419595;
-      $scope.currentPlace.lat = 37.79797;
-      Places.addPlace($scope.currentPlace);
-      //currently erases before done submitting
-      // $scope.currentPlace.name = '';
-      // $scope.currentPlace.address = '';
-      // $scope.currentPlace.description = '';
-      // $scope.currentPlace.url = '';
+      Places.calcLongLat($scope.currentPlace.address)
+        .then(function(location) {
+          var googleMaps = location.data;
+
+          $scope.currentPlace.long = googleMaps.results[0].geometry.location.lng;
+          $scope.currentPlace.lat = googleMaps.results[0].geometry.location.lat;
+
+          Places.addPlace($scope.currentPlace)
+          .then(function() {
+            initializePlaces();
+            $scope.currentPlace.name = '';
+            $scope.currentPlace.address = '';
+            $scope.currentPlace.description = '';
+            $scope.currentPlace.url = '';
+          })
+          .catch(function(error) {
+            console.error(error);
+          });
+        });
     };
 
     $scope.increment = function() {

@@ -23,7 +23,7 @@ module.exports = {
       .then(function(places) {
         deleteAll(places)
           .then(function() {
-            return;
+            res.json({});
           });
       })
       .fail(function(error) {
