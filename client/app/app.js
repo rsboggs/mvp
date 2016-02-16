@@ -1,6 +1,7 @@
 angular.module('app', [
-  app.services,
-  app.places
+  'app.services',
+  'app.places',
+  'ngRoute'
   ])
   .config(function($routeProvider) {
     $routeProvider
